@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon DB button</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="neon-button">
+        <span class="btn-bg absolute-center"></span>
+        <span class="neon-btn-text">Hello World!</span>
+        <span class="btn-highlight"></span>
+    </button>
+
+    <script>
+        const neonButton = document.querySelector('.neon-button');
+
+        neonButton.addEventListener('click', () => {
+            if(neonButton.classList.contains('active')) {
+                neonButton.classList.remove('active')
+            }else{
+                neonButton.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>
