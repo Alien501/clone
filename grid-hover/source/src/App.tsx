@@ -10,7 +10,7 @@ function App() {
           row={10}
           column={10}
           symbol='+'
-          numberOfTrail={20}
+          numberOfTrail={10}
         />
       </div>
     </>

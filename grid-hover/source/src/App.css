@@ -30,9 +30,11 @@ body {
   color: #a4a4a4;
   cursor: default;
   user-select: none;
+  transition: .3s ease all;
 }
 
 .symbol-container.active span,
 .symbol-container span.active {
+  transform: rotate(90deg);
   color: #222222;
 }
