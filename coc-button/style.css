@@ -27,33 +27,21 @@ body {
     font-family: sans-serif;
 }
 
-.coc-text-button {
-    padding: 16px 28px;
+/* Common Styles */
+
+.coc-button {
     display: inline-block;
     border-radius: 6px;
     background-color: #e98101;
-    outline: 1px solid #000;
+    outline: 2px solid #000;
     border: 2px solid #fff;
-    box-shadow: 0px 2px 0px rgba(0, 0, 0, .4);
+    box-shadow: 2px 3px 0px rgba(0, 0, 0, .4);
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
 
-.coc-text-button::before {
-    content: '';
-    width: 95%;
-    height: 50%;
-    background: rgb(255, 207, 134);
-    background: linear-gradient(180deg, rgb(249, 225, 118) 0%, rgba(255, 255, 255, 0) 100%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -84%);
-    border-radius: 4px;
-}
-
-.coc-text-button span {
+.coc-button span {
     font-size: 18px;
     font-family: 'coc-font';
     -webkit-text-stroke: 1px black;
@@ -64,6 +52,62 @@ body {
     z-index: 2;
 }
 
-.coc-text-button:active {
+.coc-button:active {
     scale: .9;
+}
+
+.coc-button::before {
+    content: '';
+    width: 95%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -88%);
+    z-index: 0; 
+}
+
+/* Text Button */
+.coc-text-button {
+    padding: 16px 28px;
+}
+
+.coc-text-button::before {
+    background: rgb(255, 207, 134);
+    background: linear-gradient(180deg, rgb(249, 225, 118) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 4px;
+}
+
+/* Icon Button */
+.coc-icon-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, .4);
+}
+
+.coc-icon-button::before {
+    width: 94%;
+    background: rgba(255, 207, 134, .5);
+    border-radius: 6px;
+    transform: translate(-50%, -95%);
+}
+
+.coc-icon-button img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+}
+
+.coc-icon-button span {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 132%);
 }
