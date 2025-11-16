@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COC - Loader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <div class="load-container">
+            <div class="loader-wrapper">
+                <div class="loading-bar"></div>
+            </div>
+            <p class="loader-text">Loading</p>
+        </div>
+        <br>
+        <center>
+            <input min="0" max="100" value="10" type="range" name="progress" id="progress">
+        </center>
+    </div>
+    <script>
+        const progressSlider = document.querySelector('#progress');
+        const loadingBar = document.querySelector('.loading-bar');
+
+        progressSlider.addEventListener('input', () => {
+            const progress = -100 + parseInt(progressSlider.value);
+            console.log(progress);
+            loadingBar.style.transform = `translate3d(${progress}%, 0px, 0px)`;
+        })
+    </script>
+</body>
+</html>
