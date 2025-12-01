@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --bg-color: #041819;
+    --color-primary: #20e7b7;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+
+.container {
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+.main-line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(3%, -50%) rotate(126deg);
+    width: 120px;
+    height: 2px;
+    background: white;
+    transform-origin: left center;
+}
+
+.side-chick {
+    position: absolute;
+    height: 2px;
+    width: 120px;
+    background-color: rebeccapurple;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: right center;
+}
+
+.end-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    top: -4px;
+}
+
+#pathCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 100%;
+    z-index: 0;
+}
