@@ -13,3 +13,6 @@
 
 5. Clash of Clans - Text Button
 ![Preview](./coc-button/demo.png)
+
+6. PI Rotation
+![Preview](./pi-rotation/demo.png)
