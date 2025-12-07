@@ -26,7 +26,28 @@ window.addEventListener('resize', updateCenter);
 
 updateCenter();
 
-frame.addEventListener('mousemove', (e) => {
+// Prevent default touch behaviors to avoid scrolling/zooming issues
+frame.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+frame.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+const activateCard = () => {
+    const card = document.querySelector('.card');
+    if(!card.classList.contains('active')) {
+        card.classList.add('active');
+    }
+}
+
+const deactivateCard = () => {
+    const card = document.querySelector('.card');
+    card.classList.remove('active');
+}
+
+const parralaxEffect = (e) => {
     const offsetX = centerX - e.clientX;
     const offsetY = centerY - e.clientY;
 
@@ -43,13 +64,25 @@ frame.addEventListener('mousemove', (e) => {
 
     const finalMiddleX = initalMiddleX + parallaxMiddleX;
     const finalMiddleY = initalMiddleY + parallaxMiddleY;
-    console.log(parallaxMiddleX, parallaxMiddleY, finalMiddleX, finalMiddleY, initalMiddleX, initalMiddleY)
+    
     middleLayer.style.transform = `translate(${finalMiddleX}px, ${finalMiddleY}px)`;
-})
+}
 
-frame.addEventListener('mouseout', (e) => {
+const resetToOgPosition = () => {
     frontLayer.style.transform = `translate(0px, 0px)`;
-    // middleLayer.style.transform = `translate(40%, 37%)`;
     middleLayer.style.transform = `translate(${initalMiddleX}px, ${initalMiddleY}px)`;
     backgroundLayer.style.transform = `translate(0px, 0px)`;
-})
+    deactivateCard();
+}
+
+frame.addEventListener('mousemove', parralaxEffect);
+frame.addEventListener('touchmove', (e) => {
+    if(e.touches.length > 0) {
+        activateCard();
+        parralaxEffect(e.touches[0]);
+    }
+});
+
+frame.addEventListener('mouseout', resetToOgPosition);
+frame.addEventListener('touchend', resetToOgPosition);
+frame.addEventListener('touchcancel', resetToOgPosition);

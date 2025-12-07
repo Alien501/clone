@@ -1,13 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     transition: all .2s ease;
-}
-
-:root {
-    --tw-bg-opacity: 1;
-    --bg-black-one: rgb(12 13 13 / var(--tw-bg-opacity));
 }
 
 .absolute-center {
@@ -17,14 +14,15 @@
 }
 
 body {
-    /* background-color: var(--bg-black-one); */
+    background-color: rgba(0, 40, 105, 0.875);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
+    user-select: none;
 }
 
 .card {
@@ -40,7 +38,6 @@ body {
     position: relative; 
     overflow: hidden;  
     z-index: 1;
-    cursor: pointer;
 }
 
 .card::after {
@@ -93,7 +90,7 @@ body {
     z-index: 5;
 }
 
-.bg-image {
+.bg-image img {
     width: 100%;
 }
 
@@ -114,19 +111,41 @@ body {
 }
 
 
+.bg-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.bg-text p {
+    font-family: "Roboto Flex", sans-serif;
+    color: #6affa3;
+    font-size: 10rem;
+    font-weight: 600;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, .1);
+}
+
+
 /* Hover animation */
-.card:hover .particles {
+.card:hover .particles,
+.card.active .particles
+{
     scale: 1.2;
     filter: blur(0.5px) drop-shadow(0px 0px 10px rgb(0, 0, .15));
 }
 
-.card:hover .main-img {
+.card:hover .main-img,
+.card.active .main-img
+{
     scale: 1.45;
     transform: translate(30%, 30%);
     filter: drop-shadow(2px 1px 10px #00000032);
 }
 
-.card:hover .bg-image {
+.card:hover .bg-image,
+.card.active .bg-image
+{
     scale: 1.3;
     filter: blur(0.5px);
 }
